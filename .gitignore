@@ -1,0 +1,29 @@
+# data is not shipped with this repo — see each component's README
+simulation-study/data/*
+!simulation-study/data/.gitkeep
+data-analysis/data/*
+!data-analysis/data/.gitkeep
+
+# generated results
+simulation-study/results/*
+!simulation-study/results/.gitkeep
+data-analysis/results/*
+!data-analysis/results/.gitkeep
+asymptotic-normality/results/*
+!asymptotic-normality/results/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
