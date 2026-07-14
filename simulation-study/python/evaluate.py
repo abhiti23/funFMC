@@ -1,10 +1,11 @@
 # This file reads in the clustering output from all 3 methods (k-means,
-# funHDDC, and our factor-model method) for the simulated datasets, and
+# funHDDC, and the proposed method funFMC) for the simulated datasets, and
 # produces the average specificity (SP), sensitivity (SN), rand index (RI),
 # and, for the factor model only, L1/L2 estimation error against the true
 # loading matrix A.
 #
-# NOTE on thresholding: the factor model performs *soft* (overlapping)
+# NOTE on thresholding: the factor model-based funFMC performs *soft* (
+# overlapping)
 # clustering, so est_A must be thresholded into a hard/sparse matrix before
 # SP/SN/RI can be computed (they're defined on cluster *membership*, i.e.
 # which entries are nonzero). The L1/L2 error, however, is computed on the
@@ -35,7 +36,7 @@ def sparsify(A, upper=0.90, lower=0.05):
     in that row are zeroed out (the variable is treated as "pure" to that
     cluster). Entries with |value| < lower are zeroed out entirely. This is
     the same thresholding logic that used to live at the end of
-    factor_model_clus.py.
+    funFMC.py.
     """
     if len(A) == 0:
         return A
