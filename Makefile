@@ -14,7 +14,7 @@ help:
 	@echo ""
 	@echo "  Simulation study (run locally for one seed; use slurm/*.sbat for the full 50-seed sweep):"
 	@echo "  sim-data        simulate one dataset  (SEED=$(SEED))"
-	@echo "  sim-fm          run our method (factor_model_clus.py) on that dataset"
+	@echo "  sim-fm          run our method (funFMC.py) on that dataset"
 	@echo "  sim-kmeans      run functional k-means on that dataset"
 	@echo "  sim-funhddc     run funHDDC (R) on that dataset"
 	@echo "  sim-one         run sim-data + all three clustering methods for SEED"
@@ -43,7 +43,7 @@ sim-data:
 	cd simulation-study/python && python3 simulate_data.py $(SEED) matern3_aj
 
 sim-fm:
-	cd simulation-study/python && python3 factor_model_clus.py $(SEED)
+	cd simulation-study/python && python3 funFMC.py $(SEED)
 
 sim-kmeans:
 	cd simulation-study/python && python3 kmeans_func_clus.py $(SEED)

@@ -1,6 +1,6 @@
 # Overlapping Functional Clustering via Structured Factor Models
 
-Code accompanying the paper titled "funFMC: Overlapping Clustering for Functional Data". This repository
+Code accompanying the paper titled "[funFMC: Overlapping Clustering for Functional Data](https://arxiv.org/abs/2607.13197)". This repository
 contains three self-contained components:
 
 ```
@@ -13,11 +13,8 @@ contains three self-contained components:
 ├── asymptotic-normality/      Monte Carlo verification that the CLT for our
 │                              estimator, and a practical plug-in standard
 │                              error, behave as the theory predicts
-├── data-analysis/             applies our method to the AOMIC resting-state
-│                              fMRI dataset
-├── requirements.txt
-├── Makefile
-└── .gitignore
+├── data-analysis/             applies our method to the AOMIC resting-state                              fMRI dataset
+
 ```
 
 Each component has its own `README.md` with details specific to that piece.
@@ -39,7 +36,7 @@ pip install -r requirements.txt
 The simulation study's funHDDC step additionally requires R with the
 [`funHDDC`](https://cran.r-project.org/package=funHDDC) package installed.
 
-## Running things
+## Running the Code
 
 Each component was originally developed against a SLURM cluster (see the
 `slurm/` folders), since the full simulation study (50 replicates x 3

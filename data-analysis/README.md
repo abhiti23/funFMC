@@ -73,9 +73,7 @@ Both read `results/est_A.csv` and apply their own display threshold
 
 ## Note on paths
 
-Earlier versions of this pipeline mixed a cluster-side results folder (used
-during cross-validation) with a different, hand-managed local folder (used
-for `final_clus.py` and the plotting scripts). Everything now reads from and
+All the code now reads from and
 writes to the same `data-analysis/results/` folder regardless of where it's
 run, so the pipeline works end-to-end on a single machine as well as split
 across cluster + local steps.

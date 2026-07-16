@@ -2,14 +2,14 @@
 
 Compares three clustering methods on 50 simulated functional datasets:
 
-1. **Our method (funFMC)** — `python/factor_model_clus.py`
+1. **Our method (funFMC)** — `python/funFMC.py`
 2. **Functional k-means** — `python/kmeans_func_clus.py`
 3. **funHDDC** — `R/funHDDC_clus.R`
 
 ## Pipeline
 
 ```
-simulate_data.py  -->  { factor_model_clus.py, kmeans_func_clus.py, funHDDC_clus.R }  -->  evaluate.py
+simulate_data.py  -->  { funFMC.py, kmeans_func_clus.py, funHDDC_clus.R }  -->  evaluate.py
    (writes to             (each reads data/, writes to results/)                          (reads results/,
     data/)                                                                                  writes results/)
 ```
@@ -45,7 +45,7 @@ make sim-evaluate           # aggregate metrics once results/ is populated
 
 ## Thresholding and evaluation
 
-Our method performs **soft** (overlapping) clustering — `factor_model_clus.py`
+Our method performs **soft** (overlapping) clustering — `funFMC.py`
 writes the raw, unthresholded loading matrix to
 `results/factor_model_estA_<id>.csv`. Thresholding into a hard/sparse matrix
 (entries above 0.90 rounded to +-1, entries below 0.10 zeroed) happens only
