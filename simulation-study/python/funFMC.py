@@ -168,12 +168,8 @@ def cross_val_mv_smooth(X, return_type="delta"):
                                 k2, b]  # we note that we are only accessing A_I since k1, k2 are in I
                     C_condensed[a, b] = sum_sigma / (len(I[a]) * len(I[b]))
         W = A_I @ C_condensed @ A_I.T
-        # print(A_I)
-
-        '''dont know what to do here!!'''
         S_II = Sigma_hold_condensed[I_flat, :]
         S_II = S_II[:, I_flat]
-        # print(off_diag_norm(W, S_II))
         if K == 1:
             losses[l] = 1
         else:
@@ -181,7 +177,7 @@ def cross_val_mv_smooth(X, return_type="delta"):
                 max(len(I_flat) * (len(I_flat) - 1), 1))  # calculates cross-validation loss
         K_list[l] = K
         l += 1
-        # print(losses[l-1])
+
     if return_type == "delta":
         return grid_deltas[np.argmin(losses)]
 
@@ -196,7 +192,6 @@ def cross_val_mv_smooth(X, return_type="delta"):
         ax2.set_title("Estimated K vs Tuning Param Delta")
 
         plt.show()
-        # return K_list[np.argmin(losses)]
         return K_list, losses, grid_deltas
 
 def make_AI(p, I, K, Sigma_hat):
